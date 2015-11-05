@@ -2,14 +2,14 @@
 require_once 'lib/swift_required.php';
 
 $transporter = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
-  ->setUsername('shashi.phpdev')
-  ->setPassword('sashi.99DEV.mesha.*');
+  ->setUsername('test_username')
+  ->setPassword('test_password');
 
 $mailer = Swift_Mailer::newInstance($transporter);
 
 $message = Swift_Message::newInstance('Test Subject')
-  ->setFrom(array('shashi.phpdev@gmail.com' => 'Shashi Kanth'))
-  ->setTo(array('shasi.dulipalla@yash.com'))
+  ->setFrom(array('test_user@gmail.com' => 'Test User'))
+  ->setTo(array('tester@example.com'))
   ->setBody('This is a test mail.');
 
 $result = $mailer->send($message);
